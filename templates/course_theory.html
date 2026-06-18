@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} — Теория{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="page-title">{{ course.title }}</h1>
+    <p class="page-subtitle">Изучите материал перед тестом</p>
+
+    <div class="theory-card">{{ theory }}</div>
+
+    <div class="button-row">
+        <a href="/course/{{ course.id }}/test" class="button">Перейти к тесту →</a>
+    </div>
+</div>
+
+{% endblock %}

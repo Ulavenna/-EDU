@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Регистрация — CyberEdu{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="page-title">Регистрация</h1>
+
+    <div class="form-card">
+        {% if error %}
+        <div class="form-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" action="/register">
+            <input name="username" placeholder="Логин" required>
+            <input name="password" type="password" placeholder="Пароль" required>
+
+            <select name="role">
+                <option value="employee">Сотрудник</option>
+                <option value="admin">Админ</option>
+            </select>
+
+            <button type="submit" class="button">Зарегистрироваться</button>
+        </form>
+
+        <div class="form-footer">
+            Уже есть аккаунт? <a href="/login">Войти</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Результат — CyberEdu{% endblock %}
+{% block content %}
+
+{% set percent = (score / total * 100) if total else 0 %}
+{% set passed = total and score >= total * 0.7 %}
+
+<div class="container">
+    <h1 class="page-title">Результат теста</h1>
+
+    <div class="result-score">{{ score }} / {{ total }}</div>
+
+    <div class="progress">
+        <div class="progress-bar" style="width: {{ percent }}%"></div>
+    </div>
+
+    <p class="page-subtitle">Процент: {{ percent | round(1) }}%</p>
+
+    {% if passed %}
+        <p class="result-message pass">✅ Вы прошли курс!</p>
+    {% else %}
+        <p class="result-message fail">❌ Попробуйте снова</p>
+    {% endif %}
+
+    {% if passed and result_id %}
+    <div class="certificate-banner">
+        <span class="certificate-icon">🎓</span>
+        <div>
+            <h3>Ваш сертификат готов</h3>
+            <p>Скачайте подтверждение о прохождении курса{% if course %} «{{ course.title }}»{% endif %} в формате PDF.</p>
+        </div>
+        <a href="/certificate/{{ result_id }}" class="button">Скачать сертификат</a>
+    </div>
+    {% endif %}
+
+    <div class="button-row">
+        <a href="/courses_page" class="button button-secondary">К курсам</a>
+    </div>
+</div>
+
+{% endblock %}

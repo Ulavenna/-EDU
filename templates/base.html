@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CyberEdu{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/forms.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav">
+        <p class="nav-brand"><span class="nav-logo">🛡</span> CyberEdu</p>
+        <div class="nav-links">
+            <a href="/" class="{{ 'active' if active == 'home' }}">Главная</a>
+            <a href="/courses_page" class="{{ 'active' if active == 'courses' }}">Курсы</a>
+            <a href="/profile" class="{{ 'active' if active == 'profile' }}">Профиль</a>
+            <a href="/logout">Выйти</a>
+        </div>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

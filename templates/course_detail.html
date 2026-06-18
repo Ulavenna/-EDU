@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} — Тест{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="page-title">{{ course.title }}</h1>
+    <p class="page-subtitle">{{ content }}</p>
+
+    <form method="post" action="/submit_test">
+        {% for q in questions %}
+        {% set q_index = loop.index0 %}
+
+        <div class="question-card">
+            <p><b>{{ loop.index }}. {{ q.q }}</b></p>
+
+            {% for option in q.options %}
+                <label>
+                    <input type="radio" name="q{{ q_index }}" value="{{ loop.index0 }}" required>
+                    {{ option }}
+                </label>
+            {% endfor %}
+
+            <input type="hidden" name="correct{{ q_index }}" value="{{ q.correct }}">
+        </div>
+        {% endfor %}
+
+        <input type="hidden" name="course_id" value="{{ course.id }}">
+
+        <div class="button-row">
+            <button type="submit" class="button">Завершить тест</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

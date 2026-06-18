@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Профиль — CyberEdu{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="page-title">Личный кабинет</h1>
+
+    <div class="profile-header">
+       <div class="profile-avatar">
+    {{ user.username[:1] | upper }}
+       </div>
+            <h2>{{ user.username }}</h2>
+            <span>Роль: {{user.role}}</span>
+        </div>
+    </div>
+
+    <h2>Ваши результаты</h2>
+
+    {% if results %}
+    <table>
+        <tr>
+            <th>Курс</th>
+            <th>Результат</th>
+            <th>Процент</th>
+            <th>Сертификат</th>
+        </tr>
+        {% for r in results %}
+        {% set r_percent = (r.score / r.total * 100) if r.total else 0 %}
+        <tr>
+            <td>{{ courses_by_id.get(r.course_id, r.course_id) }}</td>
+            <td>{{ r.score }} / {{ r.total }}</td>
+            <td>{{ r_percent | round(1) }}%</td>
+            <td>
+                {% if r.total and r.score >= r.total * 0.7 %}
+                <a href="/certificate/{{ r.id }}" class="cert-link">📄 Скачать</a>
+                {% else %}
+                <span class="cert-link-disabled">—</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="empty-state">Вы пока не проходили тесты</div>
+    {% endif %}
+</div>
+
+{% endblock %}

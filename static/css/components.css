@@ -1,0 +1,291 @@
+/* === ГЕРОЙ-БЛОК (главная) === */
+.hero {
+    text-align: center;
+    padding: 64px 0 24px;
+}
+
+.hero-icon {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 2.1rem;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 28px;
+}
+
+/* === СЕТКА КУРСОВ === */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.course-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: var(--radius);
+    transition: border-color 0.2s, transform 0.2s;
+    text-align: left;
+}
+
+.course-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.course-card .course-icon {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.course-card h3 {
+    margin-bottom: 8px;
+}
+
+.course-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* === БЛОК ТЕОРИИ === */
+.theory-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    text-align: left;
+    white-space: pre-line;
+    line-height: 1.75;
+}
+
+/* === ВОПРОСЫ ТЕСТА === */
+.question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 16px 0;
+    text-align: left;
+}
+
+.question-card p {
+    margin-bottom: 12px;
+}
+
+.question-card label {
+    display: block;
+    padding: 11px 14px;
+    margin: 6px 0;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    font-weight: 500;
+}
+
+.question-card label:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent);
+}
+
+.question-card input[type="radio"] {
+    margin-right: 8px;
+    accent-color: var(--accent);
+}
+
+/* === РЕЗУЛЬТАТ === */
+.result-score {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 8px 0 20px;
+}
+
+.progress {
+    width: min(420px, 90%);
+    margin: 0 auto 16px;
+    background: var(--bg-soft);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 14px;
+    border: 1px solid var(--border);
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.result-message {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.result-message.pass {
+    color: var(--success);
+}
+
+.result-message.fail {
+    color: var(--danger);
+}
+
+/* === ТАБЛИЦА === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+th {
+    background: var(--bg-soft);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+tr:not(:last-child) td {
+    border-bottom: 1px solid var(--border);
+}
+
+/* === ПРОФИЛЬ === */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 28px;
+    margin-bottom: 28px;
+}
+
+.profile-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.profile-header h2 {
+    margin: 0;
+}
+
+.profile-header span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* === ПУСТОЕ СОСТОЯНИЕ === */
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 32px 0;
+}
+
+/* === БАННЕР СЕРТИФИКАТА === */
+.certificate-banner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-dark);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.certificate-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.certificate-banner h3 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+}
+
+.certificate-banner p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.certificate-banner .button {
+    margin-left: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* === ССЫЛКА НА СЕРТИФИКАТ В ТАБЛИЦЕ === */
+.cert-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.cert-link:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
+
+.cert-link-disabled {
+    color: var(--text-muted);
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 600px) {
+    .hero {
+        padding: 40px 0 16px;
+    }
+    .form-card,
+    .theory-card,
+    .question-card {
+        padding: 20px;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .certificate-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .certificate-banner .button {
+        margin-left: 0;
+        width: 100%;
+    }
+}
